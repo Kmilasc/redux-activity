@@ -18,6 +18,7 @@ if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement)
   root.render(
     <StrictMode>
+      {/* @ts-expect-error */}
       <Provider>
         <RouterProvider router={router} />
       </Provider>

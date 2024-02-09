@@ -78,7 +78,7 @@ const products = [
   }
 ];
 
-export const [useProductsStore, { applyFilter }] = createReduxModule("products", {
+export const [useProductsStore, { applyFilter }, productsStore] = createReduxModule("products", {
   fullList: products,
   filteredList: products,
   currentFilter: "all",

@@ -5,7 +5,7 @@ interface IProductRanked {
   likes: number;
 }
 
-export const [useRankingStore, { likeProduct }] = createReduxModule("ranking", [] as IProductRanked[], {
+export const [useRankingStore, { likeProduct }, rankingStore] = createReduxModule("ranking", [] as IProductRanked[], {
   likeProduct: (state, idProduct: number) => {
     const isProdcutRanked = state.find((product) => product.idProduct === idProduct);
 

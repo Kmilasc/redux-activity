@@ -5,7 +5,7 @@ interface IProductChekouted {
   amount: number;
 }
 
-export const [useCheckoutStore, { addToCart }] = createReduxModule("checkout", [] as IProductChekouted[], {
+export const [useCheckoutStore, { addToCart }, checkoutStore] = createReduxModule("checkout", [] as IProductChekouted[], {
   addToCart: (state, { idProduct, amount }: IProductChekouted) => {
     const isProdcutRanked = state.find((product) => product.idProduct === idProduct);
 
