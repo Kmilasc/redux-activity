@@ -1,9 +1,8 @@
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { createLazyFileRoute, useNavigate } from '@tanstack/react-router';
-import { useForm, SubmitHandler } from "react-hook-form"
-import { reqresApi, useLoginMutation } from "@/services/reqresApi";
-import { useEffect } from "react";
+import { useForm } from "react-hook-form"
+import { useLoginMutation } from "@/services/reqresApi";
 
 export const Route = createLazyFileRoute('/login')({
   component: Login,
