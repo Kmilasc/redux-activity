@@ -2,6 +2,7 @@
 import { ProductsList } from '@/components/component/products-list';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { useGetProductsQuery } from '@/services/reqresApi';
 import { applyFilter, useProductsStore } from '@/stores/productsStore';
 import { createLazyFileRoute } from '@tanstack/react-router';
 
@@ -10,6 +11,7 @@ export const Route = createLazyFileRoute('/')({
 })
 
 function Index() {
+  useGetProductsQuery(null)
   const { products, currentFilter } = useProductsStore((state) => ({ products: state.filteredList, currentFilter: state.currentFilter }))
 
   return (

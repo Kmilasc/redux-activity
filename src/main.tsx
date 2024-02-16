@@ -1,9 +1,11 @@
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
-import { Provider } from "hooks-for-redux";
+import { Provider as ProviderForHooks } from "hooks-for-redux";
 import '@/globals.css'
 import { routeTree } from './routeTree.gen'
+import { store } from './stores/store';
+import { Provider } from 'react-redux';
 
 const router = createRouter({ routeTree })
 
@@ -18,9 +20,11 @@ if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement)
   root.render(
     <StrictMode>
-      {/* @ts-expect-error */}
-      <Provider>
-        <RouterProvider router={router} />
+      <Provider store={store}>
+        {/* @ts-expect-error */}
+        <ProviderForHooks>
+          <RouterProvider router={router} />
+        </ProviderForHooks>
       </Provider>
     </StrictMode>,
   )
